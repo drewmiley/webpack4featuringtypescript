@@ -12,7 +12,7 @@ module.exports = {
     app: './src/index.jsx'
   },
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx', '.ts']
   },
   devtool: "source-map",
   module: {
@@ -31,9 +31,10 @@ module.exports = {
         test: /\.ts$/,
         exclude: /node_modules/,
         use: {
-          loader: "ts-loader"
+          loader: "awesome-typescript-loader"
         }
       },
+      { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
       {
         test: /\.css$/,
         exclude: /node_modules/,
