@@ -9,7 +9,7 @@ module.exports = {
   target: "web",
   mode: "development",
   entry: {
-    main: './src/index.jsx'
+    app: './src/index.jsx'
   },
   resolve: {
     extensions: ['.js', '.jsx']
