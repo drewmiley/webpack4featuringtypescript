@@ -1,6 +1,6 @@
 import * as actiontypes from './actiontypes';
 
-function setNumber(state, number: Number) {
+function setNumber(state: Object, number: Number) {
     return Object.assign({}, { number });
 }
 
