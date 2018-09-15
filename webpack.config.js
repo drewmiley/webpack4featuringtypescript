@@ -8,10 +8,16 @@ const htmlWebpackPlugin = new HtmlWebPackPlugin({
 module.exports = {
   target: "web",
   mode: "development",
+  entry: {
+    main: './src/index.jsx'
+  },
+  resolve: {
+    extensions: ['.js', '.jsx']
+  },
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
