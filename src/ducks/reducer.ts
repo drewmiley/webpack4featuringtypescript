@@ -9,7 +9,7 @@ interface Action {
     number?: number
 }
 
-export default function(state: Object | {}, action: Action) {
+export default function(state = {}, action: Action) {
     switch (action.type) {
         case actiontypes.SET_NUMBER:
             return setNumber(state, action.number);
