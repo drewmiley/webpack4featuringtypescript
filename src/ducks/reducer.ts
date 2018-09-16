@@ -1,15 +1,19 @@
 import * as actiontypes from './actiontypes';
 
-function setNumber(state: Object, number: Number) {
+const setNumber = (state: Object, number: number) => {
     return Object.assign({}, { number });
 }
 
-export default function(state: Object | {}, action: any) {
+interface Action {
+    type: string,
+    number?: number
+}
+
+export default function(state: Object | {}, action: Action) {
     switch (action.type) {
         case actiontypes.SET_NUMBER:
             return setNumber(state, action.number);
         default:
             return state;
     }
-    return state;
 }
