@@ -9,7 +9,7 @@ module.exports = {
   target: "web",
   mode: "development",
   entry: {
-    app: './src/index.jsx'
+    app: ['babel-polyfill', './src/index.jsx']
   },
   resolve: {
     extensions: ['.js', '.jsx', '.ts']

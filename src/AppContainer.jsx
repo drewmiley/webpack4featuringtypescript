@@ -5,10 +5,10 @@ import * as actions from './ducks/actions';
 
 import ClickMe from './components/ClickMe';
 import NumeralDisplay from './components/NumeralDisplay';
+import FetchRandomUsers from './components/FetchRandomUsers';
 
 export default class App extends React.Component {
     render() {
-        console.log(this.props);
         return <div>
             <ClickMe
                 setNumber={this.props.setNumber}
@@ -16,6 +16,7 @@ export default class App extends React.Component {
             <NumeralDisplay
                 number={this.props.number}
             />
+            <FetchRandomUsers />
         </div>
     }
 };
