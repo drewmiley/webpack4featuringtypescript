@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-export default class NumeralDisplay extends React.Component {
+export default class NumeralDisplay extends Component {
     constructor(props) {
         super(props);
-        this.shouldComponentUpdate = function(nextProps, nextState) {
+        this.shouldComponentUpdate = (nextProps, nextState) => {
             return this.props.number !== nextProps.number;
         };
     }
+
     render() {
-        return <div>
+        return (
             <span>{this.props.number}</span>
-        </div>
+        );
     }
 };
