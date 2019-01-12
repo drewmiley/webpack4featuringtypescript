@@ -258,3 +258,39 @@ import store from './ducks/store';
 ```
 1. Open your browser at `localhost:8080` and gasp in awe.
 1. COMMIT
+1. Change `actiontypes.js` to `actiontypes.ts` and change the code inside to
+```
+export const SET_NUMBER: string = 'SET_NUMBER';
+```
+1. Add `'.ts'` to the extensions array in `webpack.config.js`
+1. `npm install typescript awesome-typescript-loader`
+1. In `webpack.config.js`, in the rules array, add
+```
+{
+  test: /\.ts$/,
+  exclude: /node_modules/,
+  use: {
+    loader: "awesome-typescript-loader"
+  }
+}
+```
+1. `touch tsconfig.json`
+1. In `tsconfig.json` add
+```
+{
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "module": "commonjs",
+        "target": "es6",
+        "jsx": "react"
+    },
+    "include": [
+        "./src/**/*"
+    ]
+}
+```
+1. Open your browser at `localhost:8080` and gasp in awe.
+1. COMMIT
+1. Congratulations on reaching the end of this tutorial!
