@@ -18,26 +18,26 @@ A simple React, Redux, Typescript, Webpack4 thing using Async/Await.
 1. `npm install react react-dom`
 1. Open `src/index.html` and add
 ```
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Cool App</title>
-    </head>
-    <body>
-        <div id="app"></div>
-    </body>
-    </html>
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>Cool App</title>
+  </head>
+  <body>
+      <div id="app"></div>
+  </body>
+  </html>
 ```
 1. Open `src/index.js` and add
 ```
-    import React from 'react';
-    import ReactDOM from 'react-dom';
+  import React from 'react';
+  import ReactDOM from 'react-dom';
 
-    ReactDOM.render(
-        <h1>Hello World</h1>,
-        document.getElementById('app')
-    );
+  ReactDOM.render(
+      <h1>Hello World</h1>,
+      document.getElementById('app')
+  );
 ```
 1. Open `webpack.config.js` and add
 ```
