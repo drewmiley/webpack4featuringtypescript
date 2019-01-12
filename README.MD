@@ -82,3 +82,54 @@ module.exports = {
 1. `npm start`
 1. Open your browser at `localhost:8080` and gasp in awe.
 1. COMMIT
+1. `touch src/AppContainer.jsx`
+1. `mkdir src/components`
+1. `touch src/components/FetchRandomUsers.jsx`
+1. In `src/index.jsx`, add the line `import AppContainer from './AppContainer';` and change `<h1>Hello World</h1>` to `<AppContainer />`
+1. In `src/AppContainer.jsx` add
+```
+import React, { Component } from 'react';
+
+import FetchRandomUsers from './components/FetchRandomUsers';
+
+class App extends Component {
+    render() {
+        return <div>
+            <FetchRandomUsers />
+        </div>
+    }
+};
+
+export default App;
+```
+1. In `src/components/FetchRandomUsers.jsx` add
+```
+import React, { Component } from 'react';
+
+export default class FetchRandomUsers extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { users: [] };
+    }
+
+    async componentDidMount() {
+        const response = await fetch('https://randomuser.me/api/?results=2');
+        const json = await response.json();
+        this.setState({ users: json.results });
+    }
+
+    render() {
+        return (
+            <ul>
+                {this.state.users.map((user, i) => (
+                    <li key={i}>{user.name.title} {user.name.first} {user.name.last}</li>
+                ))}
+            </ul>
+        );
+    }
+}
+```
+1. `npm install babel-polyfill`
+1. In `webpack.config.js` change `app: './src/index.jsx'` to `app: ['babel-polyfill', './src/index.jsx']`
+1. Open your browser at `localhost:8080` and gasp in awe.
+1. COMMIT
