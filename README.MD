@@ -134,54 +134,10 @@ export default class FetchRandomUsers extends Component {
 28. Reload `npm start`, and open your browser at `localhost:8080` and gasp in awe.
 29. COMMIT
 30. `mkdir src/ducks`
-31. `touch src/ducks/actions.js`
-32. `touch src/ducks/actiontypes.js`
-33. `touch src/ducks/reducer.js`
-34. `touch src/ducks/store.js`
-35. `touch src/components/ClickMe.jsx`
-36. `touch src/components/NumeralDisplay.jsx`
-37. `npm install react-redux redux`
-38. In `src/ducks/actions.js` add
-```
-import * as actiontypes from './actiontypes';
-
-export function setNumber(number) {
-    return {
-        type: actiontypes.SET_NUMBER,
-        number
-    }
-}
-```
-39. In `src/ducks/actiontypes.js` add
-```
-export const SET_NUMBER = 'SET_NUMBER';
-```
-40. In `src/ducks/reducer.js` add
-```
-import * as actiontypes from './actiontypes';
-
-const setNumber = (state, number) => {
-    return Object.assign({}, { number });
-}
-
-export default function(state = {}, action) {
-    switch (action.type) {
-        case actiontypes.SET_NUMBER:
-            return setNumber(state, action.number);
-        default:
-            return state;
-    }
-}
-```
-41. In `src/ducks/store.js` add
-```
-import { compose, createStore } from 'redux';
-
-import reducer from './reducer';
-
-export default createStore(reducer, { number: 0 });
-```
-42. In `src/components/ClickMe.jsx` add
+31. `touch src/ducks/actions.js src/ducks/actiontypes.js src/ducks/reducer.js src/ducks/store.js`
+32. `touch src/components/ClickMe.jsx src/components/NumeralDisplay.jsx`
+33. `npm install react-redux redux`
+34. In `src/components/ClickMe.jsx` add
 ```
 import React, { Component } from 'react';
 
@@ -204,7 +160,7 @@ export default class ClickMe extends Component {
     }
 };
 ```
-43. In `src/components/NumeralDisplay.jsx` add
+35. In `src/components/NumeralDisplay.jsx` add
 ```
 import React, { Component } from 'react';
 
@@ -223,7 +179,7 @@ export default class NumeralDisplay extends Component {
     }
 };
 ```
-44. In `src/AppContainer.jsx` add the imports
+36. In `src/AppContainer.jsx` add the imports
 ```
 import {connect} from 'react-redux';
 
@@ -232,7 +188,7 @@ import * as actions from './ducks/actions';
 import ClickMe from './components/ClickMe';
 import NumeralDisplay from './components/NumeralDisplay';
 ```
-45. In `src/AppContainer.jsx` add between the div tags
+37. In `src/AppContainer.jsx` add between the div tags
 ```
 <ClickMe
     setNumber={this.props.setNumber}
@@ -241,30 +197,72 @@ import NumeralDisplay from './components/NumeralDisplay';
     number={this.props.number}
 />
 ```
-46. In `src/AppContainer.jsx` change the last line export to
+38. Open your browser at `localhost:8080` and gasp in awe.
+39. COMMIT
+40. In `src/ducks/actions.js` add
 ```
-export default connect(state => state, actions)(App);
+import * as actiontypes from './actiontypes';
+
+export function setNumber(number) {
+    return {
+        type: actiontypes.SET_NUMBER,
+        number
+    }
+}
 ```
-47. In `src/index.jsx` add the imports
+41. In `src/ducks/actiontypes.js` add
+```
+export const SET_NUMBER = 'SET_NUMBER';
+```
+42. In `src/ducks/reducer.js` add
+```
+import * as actiontypes from './actiontypes';
+
+const setNumber = (state, number) => {
+    return Object.assign({}, { number });
+}
+
+export default function(state = {}, action) {
+    switch (action.type) {
+        case actiontypes.SET_NUMBER:
+            return setNumber(state, action.number);
+        default:
+            return state;
+    }
+}
+```
+43. In `src/ducks/store.js` add
+```
+import { compose, createStore } from 'redux';
+
+import reducer from './reducer';
+
+export default createStore(reducer, { number: 0 });
+```
+44. In `src/index.jsx` add the imports
 ```
 import {Provider} from 'react-redux';
 import store from './ducks/store';
 ```
-48. In `src/index.jsx` change the line `<AppContainer />` to
+45. In `src/index.jsx` change the line `<AppContainer />` to
 ```
 <Provider store={store}>
     <AppContainer />
 </Provider>
 ```
-49. Open your browser at `localhost:8080` and gasp in awe.
-50. COMMIT
-51. Change `actiontypes.js` to `actiontypes.ts` and change the code inside to
+46. In `src/AppContainer.jsx` change the last line export to
+```
+export default connect(state => state, actions)(App);
+```
+47. Open your browser at `localhost:8080` and gasp in awe.
+48. COMMIT
+49. Change `actiontypes.js` to `actiontypes.ts` and change the code inside to
 ```
 export const SET_NUMBER: string = 'SET_NUMBER';
 ```
-52. Add `'.ts'` to the extensions array in `webpack.config.js`
-53. `npm install typescript awesome-typescript-loader`
-54. In `webpack.config.js`, in the rules array, add
+50. Add `'.ts'` to the extensions array in `webpack.config.js`
+51. `npm install typescript awesome-typescript-loader`
+52. In `webpack.config.js`, in the rules array, add
 ```
 {
   test: /\.ts$/,
@@ -274,8 +272,8 @@ export const SET_NUMBER: string = 'SET_NUMBER';
   }
 }
 ```
-55. `touch tsconfig.json`
-56. In `tsconfig.json` add
+53. `touch tsconfig.json`
+54. In `tsconfig.json` add
 ```
 {
     "compilerOptions": {
@@ -291,6 +289,6 @@ export const SET_NUMBER: string = 'SET_NUMBER';
     ]
 }
 ```
-57. Open your browser at `localhost:8080` and gasp in awe.
-58. COMMIT
-59. Congratulations on reaching the end of this tutorial!
+55. Open your browser at `localhost:8080` and gasp in awe.
+56. COMMIT
+57. Congratulations on reaching the end of this tutorial!
