@@ -260,8 +260,8 @@ export default connect(state => state, actions)(App);
 ```
 export const SET_NUMBER: string = 'SET_NUMBER';
 ```
-50. Add `'.ts'` to the extensions array in `webpack.config.js`
-51. `npm install typescript awesome-typescript-loader`
+50. `npm install typescript awesome-typescript-loader`
+51. Add `'.ts'` to the extensions array in `webpack.config.js`
 52. In `webpack.config.js`, in the rules array, add
 ```
 {
@@ -289,6 +289,6 @@ export const SET_NUMBER: string = 'SET_NUMBER';
     ]
 }
 ```
-55. Open your browser at `localhost:8080` and gasp in awe.
+55. Reload `npm start`, and open your browser at `localhost:8080` and gasp in awe.
 56. COMMIT
 57. Congratulations on reaching the end of this tutorial!
