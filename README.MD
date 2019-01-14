@@ -131,7 +131,7 @@ export default class FetchRandomUsers extends Component {
 ```
 26. `npm install babel-polyfill`
 27. In `webpack.config.js` change `app: './src/index.jsx'` to `app: ['babel-polyfill', './src/index.jsx']`
-28. Open your browser at `localhost:8080` and gasp in awe.
+28. Reload `npm start`, and open your browser at `localhost:8080` and gasp in awe.
 29. COMMIT
 30. `mkdir src/ducks`
 31. `touch src/ducks/actions.js`
